@@ -10,7 +10,6 @@ class App extends Component {
 
   componentDidMount() {
     this.getVenues()
-    this.renderMap()
   }
 
   renderMap = () => {
@@ -32,7 +31,7 @@ getVenues = () => {
     .then(response => {
       this.setState({
         venues: response.data.response.groups[0].items
-      })
+      }, this.renderMap())
     })
     .catch(error => {
       console.log("Error! " + error)
@@ -41,10 +40,20 @@ getVenues = () => {
 
 
   initMap = () => {
-    const map = new window.google.maps.Map(document.getElementById('map'), {
+    var map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: -34.397, lng: 150.644},
       zoom: 8
-    });
+    })
+
+    this.state.venues.map(myVenue => {
+      var marker = new window.google.maps.Marker({
+        position: {lat: myVenue.venue.location.lat, lng:  myVenue.venue.location.lng},
+        map: map,
+        title: myVenue.venue.name
+      })
+    })
+
+
   }
 
   render() {
