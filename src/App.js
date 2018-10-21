@@ -40,20 +40,33 @@ getVenues = () => {
 
 
   initMap = () => {
+
     var map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: -34.397, lng: 150.644},
       zoom: 8
     })
 
+    var infowindow = new window.google.maps.InfoWindow()
+
     this.state.venues.map(myVenue => {
+      var contentString = `${myVenue.venue.name}`
+
       var marker = new window.google.maps.Marker({
         position: {lat: myVenue.venue.location.lat, lng:  myVenue.venue.location.lng},
         map: map,
         title: myVenue.venue.name
       })
+
+      marker.addListener('click', function() {
+
+        // Update content for InfoWindow
+        infowindow.setContent(contentString)
+
+        // Open the InfoWindow
+        infowindow.open(map, marker);
+      })
+
     })
-
-
   }
 
   render() {
