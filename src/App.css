@@ -33,6 +33,7 @@
 
 #map {
   height: 100vh;
+  width: 75%;
 }
 
 /* Makes the sample page fill the window. */
