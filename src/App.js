@@ -68,15 +68,22 @@ getVenues = () => {
         // Open the InfoWindow
         infowindow.open(map, marker);
       })
-
     })
   }
+
+//ERROR OCCURS for clicking on venue list item in the side bar
+handleVenueItemClick = venue => {
+  var marker = this.state.markers.find(marker => marker.id === venue.id);
+  this.handleMarkerClick(marker);
+}
 
   render() {
     return (
       <main>
         <div className="App">
-          <SideBar {...this.state} />
+          <SideBar
+            {...this.state} handleVenueItemClick={this.handleVenueItemClick}/>
+
           <div id="map"></div>
         </div>
 
