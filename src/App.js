@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import SideBar from "./SideBar";
+import SideBar from './SideBar';
 
 import './App.css';
-import axios from 'axios'
+import axios from 'axios';
 
 
 class App extends Component {
@@ -76,7 +76,7 @@ getVenues = () => {
     return (
       <main>
         <div className="App">
-          <SideBar/>
+          <SideBar {...this.state} />
           <div id="map"></div>
         </div>
 
