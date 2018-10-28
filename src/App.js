@@ -75,8 +75,10 @@ getVenues = () => {
   render() {
     return (
       <main>
-        <SideBar/>
-        <div id="map"></div>
+        <div className="App">
+          <SideBar/>
+          <div id="map"></div>
+        </div>
 
       </main>
 

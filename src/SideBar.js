@@ -5,6 +5,7 @@ export default class SideBar extends Component {
 	render() {
 		return (
 			<div className="sideBar">
+				<input type={"search"} id={"searchField"} placeholder={"Filter Venues"} />
 				<VenueList/>
 			</div>
 		);

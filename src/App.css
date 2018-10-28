@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 .App-logo {
@@ -30,6 +34,28 @@
     transform: rotate(360deg);
   }
 }
+
+.sideBar {
+  width: 25%;
+}
+
+#searchField {
+  width: 100%;
+  height: 2rem;
+  font-size: 1.5rem;
+}
+
+.venueList {
+  padding: 1rem;
+}
+
+li.venueItem {
+    list-style: none;
+    font-size: 1rem;
+    padding: .5rem;
+    margin-top: 1rem;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  }
 
 #map {
   height: 100vh;
