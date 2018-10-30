@@ -51,14 +51,19 @@ getVenues = () => {
 
     var infowindow = new window.google.maps.InfoWindow()
 
+    let markers = [];
+
     this.state.venues.map(myVenue => {
       var contentString = `${myVenue.venue.name}`
 
       var marker = new window.google.maps.Marker({
         position: {lat: myVenue.venue.location.lat, lng:  myVenue.venue.location.lng},
         map: map,
-        title: myVenue.venue.name
+        title: myVenue.venue.name,
+        id: myVenue.venue.venueId
       })
+
+      markers.push(marker);
 
       marker.addListener('click', function() {
 
@@ -69,12 +74,30 @@ getVenues = () => {
         infowindow.open(map, marker);
       })
     })
-  }
+      this.setState({
+        map: map,
+        markers: markers,
+        infowindow: infowindow
+      });
+}
 
-//ERROR OCCURS for clicking on venue list item in the side bar
+handleMarkerClick = (contentString, marker) => {
+  const infowindow = this.state.infowindow;
+    // console.log(venue);
+
+  // const contentString = venue.name;
+
+  // Update content for InfoWindow on Venue Item click in sidebar
+  infowindow.setContent(contentString)
+
+  // Open the InfoWindow on Venue Item list
+  infowindow.open(this.state.map, marker);
+}
+
 handleVenueItemClick = venue => {
-  var marker = this.state.markers.find(marker => marker.id === venue.id);
-  this.handleMarkerClick(marker);
+  const marker = this.state.markers.find(marker => marker.id === venue.id);
+  console.log (marker);
+  this.handleMarkerClick(venue.venue.name, marker);
 }
 
   render() {
