@@ -1,3 +1,4 @@
+// Reference: https://foursquare.com/developers/apps
 class Helper {
 	static baseURL() {
 		// for each venue data request, this URL is used to make request; this URL never changes: https://api.foursquare.com/v2/ for requesting data about a venue
