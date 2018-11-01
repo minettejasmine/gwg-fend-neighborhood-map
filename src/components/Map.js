@@ -3,14 +3,17 @@ import {
 	withScriptjs,
 	withGoogleMap,
 	GoogleMap,
-	Marker
+	Marker,
+	InfoWindow
 } from "react-google-maps";
 
 // Used react-google-maps, which provides a set of React components wrapping the underlying Google Maps JavaScript API v3 instances. The wrapping includes props delegation, events as callbacks, lifecycle management, and auto-mount on map. source: https://tomchentw.github.io/react-google-maps/#installation
 
 // Then created Map component that can be called/exported to App.js; Added unique Google Map JavaScript API key
+// populate Map component variable with venue marker data props passed from ...this.state in App.js
+
 const MyMapComponent = withScriptjs(
-	withGoogleMap(props => ( // populate Map component variable with venue marker data props passed from ...this.state in App.js
+	withGoogleMap(props => (
 	  <GoogleMap
 	    defaultZoom={8}
 	    zoom={props.zoom}
@@ -18,11 +21,27 @@ const MyMapComponent = withScriptjs(
 	  	center={props.center}
 	  	>
 	    	{props.markers &&
-	    		props.markers
-	    			.filter(marker => marker.isVisible)
-	    			.map((marker, index) => (
-	    				<Marker key={index} position={{ lat: marker.lat, lng: marker.lng }} />
-			))}
+	    		props.markers.filter(marker => marker.isVisible).map((marker, index) => {
+	    			const venueInfo = props.venues.find(venue => venue.id === marker.id);
+	    			return (
+	    				<Marker
+	    					key={index} position={{ lat: marker.lat, lng: marker.lng }}
+	    					onClick={() => props.handleMarkerClick(marker)}
+    					>
+	    					{marker.isOpen &&
+	    						venueInfo.bestPhoto && (
+		    						<InfoWindow>
+		    							<React.Fragment>
+		    								<img
+			    								src={`${venueInfo.bestPhoto.prefix}150x150${venueInfo.bestPhoto.suffix}`} alt={"Location Image"}
+		    								/>
+		    								<p>{venueInfo.name}</p>
+		    							</React.Fragment>
+		    						</InfoWindow>
+								)}
+						</Marker>
+					);
+				})}
 	  </GoogleMap>
 	))
 );
