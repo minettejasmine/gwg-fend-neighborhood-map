@@ -38,6 +38,15 @@ class App extends Component {
 		});
 	};
 
+	handleListItemClick = venue => {
+		// When user clicks on a list item - venue name - in the sidebar, pass the full spread of the props for that venue item from the List Item component to the List Venues component
+		// Find the corresponding marker for the venue list item that was clicked, verify that the marker id matches the venue list item id, and show infowindow
+		const marker = this.state.markers.find(marker => marker.id === venue.id);
+		// Pass this marker to handleMarkerClick()
+		this.handleMarkerClick(marker);
+		console.log(venue);
+	}
+
 	componentDidMount() {
 		FourSquareAPI.search({
 			near:"Park City UT",
@@ -64,7 +73,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<SideBar {...this.state} />
+				<SideBar {...this.state} handleListItemClick={this.handleListItemClick}/>
 				<Map {...this.state} handleMarkerClick={this.handleMarkerClick}/>
 			</div>
 		);
