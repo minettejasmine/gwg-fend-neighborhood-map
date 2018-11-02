@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem';
 
-export default class VenueList extends Component {
+export default class ListVenues extends Component {
 	render() {
 		return (
-			<ol className="venueList">
+			<ol className="listVenues">
 				<ListItem />
 			</ol>
 		);
