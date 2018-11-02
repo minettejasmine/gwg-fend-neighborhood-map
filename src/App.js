@@ -11,7 +11,7 @@ class App extends Component {
 			venues:[], // array of venues
 			markers:[], // array of markers
 			center:[],  // centers map view based on the location of the marker/markers
-			zoom: 11 // designated map zoom scale
+			zoom: 12 // designated map zoom scale
 		// data stored in this.state will be passed to the Map component
 		};
 	}
@@ -40,9 +40,9 @@ class App extends Component {
 
 	componentDidMount() {
 		FourSquareAPI.search({
-			near:"Chicago IL",
+			near:"Park City UT",
 			query:"coffee",
-			limit: 15 // which is a Promise
+			limit: 10 // which is a Promise
 		}).then(results => {
 			//deconstruct the response
 			const { venues } = results.response;
@@ -64,7 +64,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<SideBar />
+				<SideBar {...this.state} />
 				<Map {...this.state} handleMarkerClick={this.handleMarkerClick}/>
 			</div>
 		);
