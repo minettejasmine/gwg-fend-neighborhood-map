@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Map from './components/Map'; // import link to Map component
 import FourSquareAPI from './API';
+import SideBar from './components/SideBar';
+import ListVenues from './components/ListVenues';
+import ListItem from './components/ListItem';
 
 class App extends Component {
 	constructor() { // functional requirement: map marker
@@ -41,7 +44,7 @@ class App extends Component {
 		FourSquareAPI.search({
 			near:"Chicago IL",
 			query:"coffee",
-			limit: 10 // which is a Promise
+			limit: 15 // which is a Promise
 		}).then(results => {
 			//deconstruct the response
 			const { venues } = results.response;
@@ -63,6 +66,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<SideBar />
 				<Map {...this.state} handleMarkerClick={this.handleMarkerClick}/>
 			</div>
 		);
