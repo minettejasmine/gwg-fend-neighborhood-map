@@ -3,8 +3,6 @@ import './App.css';
 import Map from './components/Map'; // import link to Map component
 import FourSquareAPI from './API';
 import SideBar from './components/SideBar';
-import ListVenues from './components/ListVenues';
-import ListItem from './components/ListItem';
 
 class App extends Component {
 	constructor() { // functional requirement: map marker

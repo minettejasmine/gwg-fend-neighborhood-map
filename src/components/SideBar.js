@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import ListVenues from './components/ListVenues';
-import ListItem from './components/ListItem';
+import VenueList from './components/VenueList';
 
-// Sidebar component
 export default class SideBar extends Component {
 	render() {
 		return (
 			<div className="sideBar">
-				<ListVenues />
+				<VenueList />
 			</div>
 		);
 	}

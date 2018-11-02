@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
 	withScriptjs,
 	withGoogleMap,
 	GoogleMap,
 	Marker,
 	InfoWindow
-} from "react-google-maps";
+} from 'react-google-maps';
 
 // Used react-google-maps, which provides a set of React components wrapping the underlying Google Maps JavaScript API v3 instances. The wrapping includes props delegation, events as callbacks, lifecycle management, and auto-mount on map. source: https://tomchentw.github.io/react-google-maps/#installation
 
