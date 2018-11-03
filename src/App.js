@@ -11,8 +11,11 @@ class App extends Component {
 			venues:[], // array of venues
 			markers:[], // array of markers
 			center:[],  // centers map view based on the location of the marker/markers
-			zoom: 12 // designated map zoom scale
+			zoom: 12, // designated map zoom scale
 		// data stored in this.state will be passed to the Map component
+			updateSuperState: obj => {
+				this.setState(obj);
+			}
 		};
 	}
 	closeMapMarkers = () => {

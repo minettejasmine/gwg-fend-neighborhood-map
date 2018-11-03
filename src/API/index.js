@@ -10,7 +10,7 @@ class Helper {
 			// store foursquare API unique client ID and client secret strings
 			client_id:"YIZUP0HTO13KIS5IWUN250MSFGEKJVXDUMGLG2RFBATHC5BY",
 			client_secret:"XSX45GGMKO12V1C4NG51G24IQCW2UU34D5WDAYEVKUSUS0ZL",
-			v: "20181031"
+			v: "20181102"
 			// this object is will be compiled as a string
 		};
 		// return keys object parameters as a string literal, which will return a new array, which will be joined with $:

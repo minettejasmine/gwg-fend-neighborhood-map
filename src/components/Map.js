@@ -1,3 +1,4 @@
+/* global google */
 import React, { Component } from 'react';
 import {
 	withScriptjs,
@@ -11,22 +12,25 @@ import {
 
 // Then created Map component that can be called/exported to App.js; Added unique Google Map JavaScript API key
 // populate Map component variable with venue marker data props passed from ...this.state in App.js
+// Added map marker animation to bounce and drop onto the map when appropriate
 
 const MyMapComponent = withScriptjs(
 	withGoogleMap(props => (
-	  <GoogleMap
-	    defaultZoom={8}
-	    zoom={props.zoom}
-	    defaultCenter={{ lat: -34.397, lng: 150.644 }}
-	  	center={props.center}
-	  	>
+	  	<GoogleMap
+		    defaultZoom={8}
+		    zoom={props.zoom}
+		    defaultCenter={{ lat: -34.397, lng: 150.644 }}
+		  	center={props.center}
+  		>
 	    	{props.markers &&
-	    		props.markers.filter(marker => marker.isVisible).map((marker, index) => {
+	    		props.markers.filter(marker => marker.isVisible).map((marker,index,arr) => {
 	    			const venueInfo = props.venues.find(venue => venue.id === marker.id);
 	    			return (
 	    				<Marker
-	    					key={index} position={{ lat: marker.lat, lng: marker.lng }}
+	    					key={index}
+	    					position={{ lat: marker.lat, lng: marker.lng }}
 	    					onClick={() => props.handleMarkerClick(marker)}
+	    					animation={arr.length === 1 ? google.maps.Animation.BOUNCE : google.maps.Animation.DROP}
     					>
 	    					{marker.isOpen &&
 	    						venueInfo.bestPhoto && (
