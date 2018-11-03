@@ -46,11 +46,17 @@ const MyMapComponent = withScriptjs(
 						</Marker>
 					);
 				})}
-	  </GoogleMap>
+	  	</GoogleMap>
 	))
 );
 
 export default class Map extends Component {
+	componentDidMount () {
+	    window.gm_authFailure = () => {
+	        alert('Error: Failed to get Google map.')
+	        console.log('Error: Failed to get Google map.')
+	    }
+	}
 	render() {
 		return (
 			<MyMapComponent
@@ -63,4 +69,5 @@ export default class Map extends Component {
 			/>
 		);
 	}
+
 }

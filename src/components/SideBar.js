@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo from './foursquare-logo.svg';
 import ListVenues from './ListVenues'; // Import data from List Venues component
 
 export default class SideBar extends Component {
@@ -44,6 +45,9 @@ export default class SideBar extends Component {
 	render() {
 		return (
 			<div className="sideBar">
+				<header className="App-footer">
+          			<img src={logo} className="App-logo" alt="API source logo" />
+       			</header>
 				<input
 					type={"search"}
 					id={"search"}

@@ -18,6 +18,7 @@ class App extends Component {
 			}
 		};
 	}
+
 	closeMapMarkers = () => {
 		const markers = this.state.markers.map(marker => {
 			marker.isOpen = false;
@@ -73,6 +74,7 @@ class App extends Component {
 			console.log(results);
 		});
 	}
+
 	render() {
 		return (
 			<div className="App">
