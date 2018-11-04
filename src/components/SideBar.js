@@ -44,11 +44,11 @@ export default class SideBar extends Component {
 
 	render() {
 		return (
-			<div className="sideBar">
-				<header className="App-header">
-          			<img src={logo} className="App-logo" alt="API source logo" />
+			<div className="sideBar" aria-role="Sidebar" tabIndex="2">
+				<header className="App-header" aria-role="Sidebar Header" tabIndex="3">
+          			<img src={logo} className="App-logo" alt="API source logo" aria-role="Foursquare API Source Logo" tabIndex="4"/>
        			</header>
-					<input className="searchbox"
+					<input className="searchbox" aria-role="Search Text Field" tabIndex="5"
 						type={"search"}
 						id={"search"}
 						placeholder={"Search..."}

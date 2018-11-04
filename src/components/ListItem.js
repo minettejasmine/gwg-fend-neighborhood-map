@@ -8,10 +8,10 @@ export default class ListItem extends Component {
 		// The venue item name will be next to the icon
 		return (
 			<li
-				className="listItem"
+				className="listItem" aria-role="Venue Data Search List Results" tabIndex="7"
 				onClick={() => this.props.handleListItemClick(this.props)}
 				>
-					<img className="listItem-icons"
+					<img className="listItem-icons" aria-role="Venue Icon" tabIndex="8"
 						src={
 							this.props.categories[0].icon.prefix+
 							"32"+

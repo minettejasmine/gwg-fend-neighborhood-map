@@ -5,7 +5,7 @@ import ListItem from './ListItem'; // import data from ListItems component
 export default class ListVenues extends Component {
 	render() {
 		return (
-			<ol className="listVenues">
+			<ol className="listVenues" aria-role="List of Venues" tabIndex="6">
 				{this.props.venues &&
 					this.props.venues.map((venue, index) => (
 						<ListItem
