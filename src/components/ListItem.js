@@ -11,7 +11,7 @@ export default class ListItem extends Component {
 				className="listItem"
 				onClick={() => this.props.handleListItemClick(this.props)}
 				>
-					<img
+					<img className="listItem-icons"
 						src={
 							this.props.categories[0].icon.prefix+
 							"32"+

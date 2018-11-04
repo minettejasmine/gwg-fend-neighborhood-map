@@ -45,15 +45,15 @@ export default class SideBar extends Component {
 	render() {
 		return (
 			<div className="sideBar">
-				<header className="App-footer">
+				<header className="App-header">
           			<img src={logo} className="App-logo" alt="API source logo" />
        			</header>
-				<input
-					type={"search"}
-					id={"search"}
-					placeholder={"Search Venues"}
-					onChange={this.handleUpdate}
-				/>
+					<input className="searchbox"
+						type={"search"}
+						id={"search"}
+						placeholder={"Search..."}
+						onChange={this.handleUpdate}
+					/>
 				<ListVenues
 					{...this.props}
 					venues={this.handleSearchVenues()}
